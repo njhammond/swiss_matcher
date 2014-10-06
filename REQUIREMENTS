@@ -26,4 +26,6 @@ Given a choice, do not match two stationary teams against each other. Ignore thi
 
 Given a choice, do not allow teams to play in more than one RR per session.
 
+Has a separate option to configure the first round of a section. Various options, e.g. play against someone in same strat, random, seeded etc. 
+
 In implementation, the objects (event, session, section, teams etc.) will be Ruby on Rails objects. So, for example, access the score via team.team_score. At the moment, I've coded it so that everything is a Hash, e.g. team[:team_score]. Discuss later.

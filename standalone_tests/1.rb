@@ -43,6 +43,14 @@ def make_new_round(round_number)
   round
 end
 
+# The matching options are really an attribute of a round.
+# Complicated explanation of why separate. For now just assume so.
+def make_new_matching_options(round_number)
+  matching_option = Hash.new
+  matching_option[:matching_option_round_number] = matching_option
+  matching_option
+end
+
 ########
 # Init code
 ########
@@ -64,8 +72,14 @@ rounds = Array.new
   rounds << round
 end
 
+matching_options = Array.new
+(1..4).each do |count|
+  matching_option = make_new_matching_option(count)
+  matching_options << matching_option
+end
+
 # Test the code
-new_matches = SwissMatcher.get_matches(event, session, section, teams, rounds[2])
+new_matches = SwissMatcher.get_matches(event, session, section, teams, rounds[2], matching_option[2])
 SwissMatcher.debug_matches(new_matches)
 
 ## Add a team to make it a RR

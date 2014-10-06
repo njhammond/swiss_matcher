@@ -2,7 +2,7 @@ module SwissMatcher
 
   # Return a possible empty array of matches.
   # Need to decide if passed in like this, or as @event, @session etc.
-  def self.get_matches(event, session, section, teams, round)
+  def self.get_matches(event, session, section, teams, round, matching_option)
 
     # Debug teams
     puts "Teams have NOT been sorted."
