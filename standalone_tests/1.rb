@@ -23,6 +23,7 @@ end
 def make_new_section(section_number)
   section = Hash.new
   section[:section_number] = section_number
+  section[:section_nrounds] = 4 # Max number of rounds in section.
   section
 end
 
@@ -46,7 +47,9 @@ end
 # Init code
 ########
 event = make_new_event
+# session_number
 session = make_new_session(1)
+# section_number
 section = make_new_section(1)
 
 teams = Array.new
@@ -61,6 +64,7 @@ rounds = Array.new
   rounds << round
 end
 
+# Test the code
 new_matches = SwissMatcher.get_matches(event, session, section, teams, rounds[2])
 SwissMatcher.debug_matches(new_matches)
 
