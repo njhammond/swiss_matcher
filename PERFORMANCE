@@ -1,0 +1,7 @@
+2bd
+
+Performance may become an issue. This gem is stateless, i.e. it maintains no 
+information about any previous calls. This gem may degrade towards the end of an event with a large number of teams. There may be ways to pass 'state', i.e., the 'map' back to the calling program.
+
+This issue is deferred to version 2 of the software, or least later.
+

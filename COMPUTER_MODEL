@@ -1,0 +1,50 @@
+Some people like to start out with a problem and map it to an informal model. By defining the terminology, it helps to frame the problem.
+
+
+All objects may have attributes.
+
+An event has sessions.
+
+A session has one or more sections.
+
+A section has teams. Teams can be teams of 4 (Swiss Teams) or a team of 2 (Swiss Pairs).
+
+A section has rounds.
+
+Teams have a score.
+
+Teams play matches.
+
+A match may span one or more rounds. (Teams of 4 can span 2 rounds, teams of 2 cannot).
+
+Some events may not allow a team to play more than one match per round (e.g. Swiss Pairs).
+
+A team may not need to play in a round (may have a bye/not play).
+
+A team may have more than one match per round (e.g. 3 way single round robin for Swiss Teams).
+
+A team should not play against a team they have already played. This option is configurable, the default is that a team may play against a team that they have played in a previous session.
+
+A round has matching options.
+
+
+For Bridgescore+, we define
+
+A team has team_matches.
+
+A match has two team_matches, one for each team taking part.
+
+This model allows for information related to a team's match to be stored within a model easily accessible to that team.
+
+
+To become less formal:
+
+A Swiss (team of 4) event, typically will have one section per session. A team only plays against other teams within that section. A session can be confusing; a session is the entirety of a group of teams playing against each other. For example, in an ACBL NABC, the final 2 day Swiss event is really two sessions. There are qualifiers from the first session (which lasts all day) to the second session. The word is potentially confusing because in ACBL land, the word "session" typically refers to 3-4 hours of play. Within the context of this gem, the word "session" is a computer model term.
+
+A Swiss Pairs event can be confusing. There can be multiple physical sections within a single session. For example, sections A, B, C. However for computer modeling purposes, these are all considered a single section. The tables that someone plays at are independent of the Swiss algorithm.
+
+
+
+
+
+

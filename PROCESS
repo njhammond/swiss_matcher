@@ -1,0 +1,16 @@
+This documents the process by which the work will be done.
+
+1. Get agreement on the REQUIREMENTS and other documents.
+
+2. Someone starts working on the ALGORITHM. Writes it up in plain English.
+
+3. Development starts with the main code and testing. Development can start during Phase 2 as debug and infrastructure code can be written. For example, someone can spec out the format of a test file and write code to read the test file.
+
+4. Code gets to a point where it needs integration testing.
+
+We can decide how to proceed from there. 
+
+We need to define who gets to make any final decisions; for now, Nicolas will assume that role but ideally looking for a long term maintainer of this code. Will depend on how much work each person does.
+
+
+Anyone interested in working on the project should send Nicolas an email, either through GitHub or externally. Nicolas will then add you as a colloborator.

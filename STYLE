@@ -1,0 +1,22 @@
+There are various Ruby style guides out there.
+
+Not going to pick a specific one.
+
+Nicolas prefers
+
+if (a == 1) then
+  do this
+end
+
+The then is not needed, but makes the code more readable to a non-Ruby person.
+The brackets are also not needed, but again, more readable.
+Old fashioned K&R style for spacing.
+Prefer a tab stop of 2.
+
+Ideally no lines > 80 char.
+
+Leave the IDE up to you.
+
+Personally I still use vi, so going with least common denominator.
+
+Main reason for wanting to use 'old' style is readability and ease of translation to other languages.

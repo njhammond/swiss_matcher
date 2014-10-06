@@ -1,0 +1,29 @@
+This placeholder is for the algorithm.
+
+Am looking for someone to describe an algorithm, in English, that can be implemented.
+
+There has been prior discussion on Bridgewinners.
+
+
+I'll start...
+
+For a given event, the entire state of the event will be passed in.
+
+
+1. Build a graph that contains a list of all teams and who they have played.
+
+2. Find the list of teams available for the current round (the current round is the round that we are trying to find matches for).
+
+3. If list of teams is 0, return ??
+
+4. Sort the list of available teams.
+
+5. Attempt to match team 1 and team 2. If they have already played, continue to find a team that team 1 has not played.
+
+6. Need to include some logic about making sure that given a match, there is still a possible solution.
+
+
+
+Clearly the above isn't finished. I just wanted to show the level of documentation that will be needed for the algorithm.
+
+Need to identify special cases, e.g. 3 teams to play in a 2 round, round-robin format.

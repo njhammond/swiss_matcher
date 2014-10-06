@@ -1,0 +1,29 @@
+Basic requirement: 
+
+Software module that can handle running a Swiss event for a Bridge Scoring Program (BSP).
+
+Software must be written in Ruby.
+
+Must be written as a Ruby Gem.
+
+Must be open source.
+
+Must be released under the MIT License so that the work can be shared with all.
+
+Must not include any proprietary code, or code that is owned by anyone else.
+
+Does not need to worry about table assignment.
+
+Must be able to detect an invalid Swiss event (e.g. a state where it is impossible for two teams not to have to play against each other).
+
+Must be able to handle all common configurations of Swiss events that occur throughout the world, in other words, this implementation is not just for the ACBL market.
+
+Must be configurable so that the software can suggest matches that meet defined criteria before all results are in for that round.
+
+Must handle Teams (team of 4) and Pairs (team of 2) Swiss events. Slightly different criteria for each.
+
+Given a choice, do not match two stationary teams against each other. Ignore this rule if both teams are in contention.
+
+Given a choice, do not allow teams to play in more than one RR per session.
+
+In implementation, the objects (event, session, section, teams etc.) will be Ruby on Rails objects. So, for example, access the score via team.team_score. At the moment, I've coded it so that everything is a Hash, e.g. team[:team_score]. Discuss later.

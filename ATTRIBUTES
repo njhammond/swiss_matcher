@@ -1,0 +1,11 @@
+This file defines the various models and attributes associated with the model.
+
+As more functionality is added, more fields will be needed.
+
+For the moment, see ./standalone_tests/1.rb. 
+This is the starting location for the attributes of a model. 
+I know a lot more attributes are needed.
+
+
+
+

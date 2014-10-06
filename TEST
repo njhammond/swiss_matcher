@@ -1,0 +1,15 @@
+This document describes how to test swiss_matcher.
+
+Most likely we will end up with a file, format 2BD, that describes the current state of the event. We will have software that will process this file, read the data into memory, then call the Swiss matcher code, output the results, possibly to another file. Verification will be comparing the output to an expected output file.
+
+This is only one possible example.
+
+Nicolas is going to leave it to the developers to come up with test suites/cases.
+
+When the main software is at a point where it can be tested, Nicolas will make available a copy of Bridgescore+ that is running a Swiss event. A special screen will be created that, given the state of the event, will output to the screen the file format that is specified for testing. This is a horribly slow way of testing, but it keeps the main Bridge program away from the module being tested.
+
+It is strongly recommended to include various debug options inside the main code to print state information.
+
+I can foresee that we will end up with a separate repository that contains some higher level code, possibly written in Ruby on Rails, that will act as a reference implementation for a scoring program that is calling swiss_matcher.
+
+For now, I've coded something very simple in ./standalone_tests/1.rb
