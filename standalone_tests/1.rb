@@ -3,7 +3,14 @@
 # Run this from the directory above,
 # ruby standalone_tests/1.rb
 #
+#
+# Need to add: 
+# Flags that will determine how to match
+# Fields that are relevant to the algorithm
 require './lib/swiss_matcher.rb'
+
+# Any variable with a _100 at the end of it is an int * 100
+# May seem a little strange, but it's part of some legacy code.
 
 ########
 # Make new helper methods
@@ -11,6 +18,9 @@ require './lib/swiss_matcher.rb'
 def make_new_event
   event = Hash.new
   event[:event_game_type] = 2  # 1=Pairs, 2=Teams.
+  event[:event_scoring_method] = 0  # Nicolas will define later.
+  event[:event_team_round_one_pairing_option] = 0 # 2BD
+  event[:event_team_vp_scale] = 0 # Nicolas 2BD. There are lots out there.
   event
 end
 
@@ -24,6 +34,7 @@ def make_new_section(section_number)
   section = Hash.new
   section[:section_number] = section_number
   section[:section_nrounds] = 4 # Max number of rounds in section.
+  section[:section_maximum_vps_per_match] = 20 #
   section
 end
 
@@ -32,8 +43,31 @@ def make_new_team(team_number)
   team[:team_number] = team_number
   # Note that score may be a float.
   team[:team_score] = 20 + rand(20)
+
+  # We may choose to break tie breaks based on number of matches won so far.
+  # So pass in the field.
+  team[:team_wins_100] = 0
   team[:team_is_stationary] = 0
   team[:team_withdrew_or_done_round_number] = 0
+  # Can in theory have a result from a 1/2 match for Swiss Teams, the value would
+  # be 50. The _100 allows for this field to be an int.
+  team[:team_nmatches_played_100] = 0
+
+  # Not sure all of these will be needed. Can discuss as we get to implementation.
+  # If a team is on 'hold', you are not allowed to match them
+  team[:team_hold] = 0
+
+  # We may have better fields elsewhere, let's discuss
+  team[:team_nmatches_reported] = 0
+  team[:team_nmatches_assigned] = 0
+  #      t.integer :team_allow_in_rr
+  # Needed?
+  team[:team_max_matches_to_play] = 0
+
+  # It is possible, in some cases, for teams to be added to a Swiss. Highly unlikely.
+  # Perhaps we ignore the possibility. But in theory, might be possible.
+  # To be discussed. May affect requirements.
+  team[:team_starting_round_number] = 0
   team
 end
 
@@ -45,9 +79,9 @@ end
 
 # The matching options are really an attribute of a round.
 # Complicated explanation of why separate. For now just assume so.
-def make_new_matching_options(round_number)
+def make_new_matching_option(round_number)
   matching_option = Hash.new
-  matching_option[:matching_option_round_number] = matching_option
+  matching_option[:matching_option_round_number] = round_number
   matching_option
 end
 
@@ -79,7 +113,7 @@ matching_options = Array.new
 end
 
 # Test the code
-new_matches = SwissMatcher.get_matches(event, session, section, teams, rounds[2], matching_option[2])
+new_matches = SwissMatcher.get_matches(event, session, section, teams, rounds[2], matching_options[2])
 SwissMatcher.debug_matches(new_matches)
 
 ## Add a team to make it a RR
